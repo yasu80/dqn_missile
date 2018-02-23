@@ -18,20 +18,22 @@ class Missile:
    
 
 x = 0.0
-y = 0.0
+y = 10.0
 v = 100.0
 theta = 30.0
 limit_upper = 100
 
+resolution = 0.1
 
-m = Missile(1,1,9.8)
+m = Missile(1,1,0)
 for num in range(limit_upper):
-   x = m.update_x(x, v, theta)
-   y = m.update_y(y, v, theta)
-   theta = m.update_theta(theta)
+   x = m.update_x(x, v, theta) * resolution
+   y = m.update_y(y, v, theta) * resolution
+   theta = m.update_theta(theta) * resolution
    plt.plot(x, y, color="k", marker="o")
    print(" x :", x)
    print(" y :", y ,"\n")
+
    if num == limit_upper:
       break
 plt.show()
